@@ -21,19 +21,19 @@
         <form action="/result" method="POST" class="has">
           <p class="subtext">Penyinaran matahari tahunan <span class="gra">(%)</span></p>
           <span class="form-control-feedback text-center"><img src="static/assets/sun.svg"></span>
-          <input type="number" class="form-control inp" name="sun" placeholder=0>
+          <input type="number" step="0.01" class="form-control inp" name="sun" placeholder=0>
 
           <p class="subtext">Suhu rata-rata tahunan <span class="gra">(Celsius)</span></p>
           <span class="form-control-feedback"><img src="static/assets/temp.svg"></span>
-          <input type="number" class="form-control inp" name="avg_temp" placeholder=0>
+          <input type="number" step="0.01" class="form-control inp" name="avg_temp" placeholder=0>
 
           <p class="subtext">Kelembaban Udara tahunan <span class="gra">(%)</span></p>
           <span class="form-control-feedback"><img src="static/assets/wind.svg"></span>
-          <input type="number" class="form-control inp" name="humidity" placeholder=0>
+          <input type="number" step="0.01" class="form-control inp" name="humidity" placeholder=0>
 
           <p class="subtext">Total Hari Hujan <span class="gra">(perTahun)</span></p>
           <span class="form-control-feedback"><img src="static/assets/date.svg"></span>
-          <input type="number" class="form-control inp" name="day" placeholder=0>
+          <input type="number" step="0.01" class="form-control inp" name="day" placeholder=0>
 
           <input type="submit" class="btn btn-primary predict-btn" value="Prediksi"/>
       </form>
