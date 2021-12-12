@@ -5,7 +5,9 @@ from sklearn.linear_model import LinearRegression
 import pickle
 
 
+
 # Load Data
+
 def create_df(da, year=[]):
     data = da.copy()
     nd = pd.DataFrame()
@@ -96,10 +98,14 @@ col_names = X.columns
 
 # Normalization
 scaler = StandardScaler()
-X = scaler.fit_transform(X)
+scaler.fit(X)
+X = scaler.transform(X)
 X = pd.DataFrame(X, columns = col_names)
 
+
 lin_reg = LinearRegression().fit(X, y)
+pickle.dump(scaler, open("scaler.pkl", "wb"))
 pickle.dump(lin_reg, open("prediction.pkl", "wb"))
+
 
 

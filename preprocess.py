@@ -1,10 +1,8 @@
 import numpy as np
-import pandas as pd
-from sklearn.preprocessing import StandardScaler
+import pickle
 
 def preprocessing(data):
     data = [np.array(data)]
-    data = pd.DataFrame(data)
-    scaler = StandardScaler()
-    data = scaler.fit_transform(data)
+    scaler = pickle.load(open("scaler.pkl","rb"))
+    data = scaler.transform(data)
     return data
