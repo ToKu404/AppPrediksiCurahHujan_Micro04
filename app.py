@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request
-
-import prediction
+import pickle
+import preprocess
 
 app = Flask(__name__, static_url_path='/static')
+
+# Load Pickle
+model = pickle.load(open("prediction.pkl","rb"))
 
 @app.route('/')
 def home():
@@ -19,7 +22,8 @@ def result():
         if(sun == 0 or avg_temp == 0 or humidity == 0 or day == 0):
             rain = "-"
         else:
-            rain = prediction.pred([[sun, avg_temp, humidity, day]])
+            r = preprocess.preprocessing([sun, avg_temp, humidity, day])
+            rain = model.predict(r)
             rain = "{0:,.2f}".format(rain[0])
     return render_template("result.html", ret = rain, s=sun, t=avg_temp,h=humidity,d=day)
 
